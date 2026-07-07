@@ -1,0 +1,23 @@
+{
+  "name": "@nurovia/integration",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Integration tests for the Nurovia AI SDK",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write"
+  },
+  "devDependencies": {
+    "@nurovia/client": "workspace:*",
+    "@nurovia/core": "workspace:*",
+    "@nurovia/provider-openai": "workspace:*",
+    "@nurovia/tsconfig": "workspace:*",
+    "@nurovia/transport": "workspace:*",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "./packages/tsconfig/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@nurovia/core": ["./packages/core/src/index.ts"],
+      "@nurovia/utils": ["./packages/utils/src/index.ts"],
+      "@nurovia/transport": ["./packages/transport/src/index.ts"],
+      "@nurovia/retry": ["./packages/retry/src/index.ts"],
+      "@nurovia/normalizer": ["./packages/normalizer/src/index.ts"],
+      "@nurovia/middleware": ["./packages/middleware/src/index.ts"],
+      "@nurovia/client": ["./packages/client/src/index.ts"],
+      "@nurovia/provider-openai": ["./packages/providers/openai/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
