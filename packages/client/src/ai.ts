@@ -13,6 +13,19 @@ import { createRequestContext } from "@nurovia/transport";
 import type { AIConfig } from "./config.js";
 import { ProviderRegistry } from "./registry.js";
 
+let deprecationWarningShown = false;
+
+function warnAboutDeprecation(): void {
+  if (deprecationWarningShown) return;
+  deprecationWarningShown = true;
+
+  console.warn(
+    "[Nurovia AI SDK] The `AI` class and registry-based API are deprecated and will be removed in v0.3.0. " +
+      "Migrate to the model-first API: `generateText({ model: openai.languageModel('gpt-4o'), messages })`. " +
+      "See https://github.com/Nurovia-dev/Nurovia-AI-SDK/blob/main/docs/migrate-v0.1-to-v0.2.md",
+  );
+}
+
 export class AI {
   private readonly registry = new ProviderRegistry();
   private readonly config: Required<Pick<AIConfig, "retry" | "timeout">> &
@@ -20,6 +33,8 @@ export class AI {
   private readonly logger: Logger;
 
   constructor(config: AIConfig = {}) {
+    warnAboutDeprecation();
+
     this.config = {
       ...config,
       retry: config.retry ?? {},
@@ -33,6 +48,7 @@ export class AI {
   }
 
   register(provider: Provider): void {
+    warnAboutDeprecation();
     this.registry.register(provider.id, provider);
   }
 

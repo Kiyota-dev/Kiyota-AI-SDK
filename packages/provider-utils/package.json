@@ -1,0 +1,59 @@
+{
+  "name": "@nurovia/provider-utils",
+  "version": "0.2.0",
+  "description": "Shared utilities for building Nurovia AI SDK providers",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "source": "./src/index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./zod": {
+      "types": "./dist/zod/index.d.ts",
+      "import": "./dist/zod/index.js",
+      "require": "./dist/zod/index.cjs"
+    }
+  },
+  "files": ["dist", "docs"],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nurovia-dev/Nurovia-AI-SDK.git",
+    "directory": "packages/provider-utils"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/zod/index.ts --format esm,cjs --dts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
+    "prepack": "node ../../scripts/prepack.js",
+    "postpack": "node ../../scripts/postpack.js"
+  },
+  "dependencies": {
+    "@nurovia/core": "workspace:*",
+    "@nurovia/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@nurovia/tsconfig": "workspace:*",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "optionalDependencies": {
+    "zod": "^3.25.76"
+  }
+}

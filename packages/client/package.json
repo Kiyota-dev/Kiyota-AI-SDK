@@ -1,8 +1,9 @@
 {
   "name": "@nurovia/client",
-  "version": "0.1.0",
-  "description": "AI client and provider registry for the Nurovia AI SDK",
+  "version": "0.2.0",
+  "description": "Model-first AI functions for the Nurovia AI SDK",
   "license": "MIT",
+  "author": "Nurovia",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -14,21 +15,34 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist"],
+  "files": ["dist", "docs"],
+  "keywords": ["ai", "llm", "openai", "nurovia", "generate-text", "embeddings"],
+  "engines": {
+    "node": ">=20"
+  },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nurovia-dev/Nurovia-AI-SDK.git",
+    "directory": "packages/client"
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint": "biome check .",
-    "lint:fix": "biome check . --write"
+    "lint:fix": "biome check . --write",
+    "prepack": "node ../../scripts/prepack.js",
+    "postpack": "node ../../scripts/postpack.js"
   },
   "dependencies": {
     "@nurovia/core": "workspace:*",
     "@nurovia/middleware": "workspace:*",
     "@nurovia/normalizer": "workspace:*",
+    "@nurovia/provider-utils": "workspace:*",
     "@nurovia/retry": "workspace:*",
     "@nurovia/transport": "workspace:*",
     "@nurovia/utils": "workspace:*"
