@@ -108,6 +108,9 @@ importers:
       '@nurovia/normalizer':
         specifier: workspace:*
         version: link:../normalizer
+      '@nurovia/provider-utils':
+        specifier: workspace:*
+        version: link:../provider-utils
       '@nurovia/retry':
         specifier: workspace:*
         version: link:../retry
@@ -189,11 +192,57 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9
 
+  packages/models:
+    devDependencies:
+      '@nurovia/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.16)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
   packages/normalizer:
     dependencies:
       '@nurovia/core':
         specifier: workspace:*
         version: link:../core
+    devDependencies:
+      '@nurovia/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.16)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
+  packages/nurovia:
+    dependencies:
+      '@nurovia/client':
+        specifier: workspace:*
+        version: link:../client
+      '@nurovia/core':
+        specifier: workspace:*
+        version: link:../core
+      '@nurovia/models':
+        specifier: workspace:*
+        version: link:../models
+      '@nurovia/provider-openai':
+        specifier: workspace:*
+        version: link:../providers/openai
+      '@nurovia/provider-utils':
+        specifier: workspace:*
+        version: link:../provider-utils
     devDependencies:
       '@nurovia/tsconfig':
         specifier: workspace:*

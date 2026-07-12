@@ -1,6 +1,6 @@
 {
   "name": "@nurovia/core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Core interfaces, types, contracts, and errors for the Nurovia AI SDK",
   "license": "MIT",
   "author": "Nurovia",

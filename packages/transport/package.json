@@ -1,6 +1,6 @@
 {
   "name": "@nurovia/transport",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "HTTP transport layer for the Nurovia AI SDK",
   "license": "MIT",
   "author": "Nurovia",

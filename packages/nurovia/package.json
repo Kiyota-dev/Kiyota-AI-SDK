@@ -1,12 +1,11 @@
 {
-  "name": "@nurovia/retry",
+  "name": "nurovia",
   "version": "0.2.1",
-  "description": "Retry policies for the Nurovia AI SDK",
+  "description": "The Nurovia AI SDK — one install, every model.",
   "license": "MIT",
   "author": "Nurovia",
   "type": "module",
   "sideEffects": false,
-  "source": "./src/index.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -15,10 +14,15 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./models": {
+      "types": "./dist/models.d.ts",
+      "import": "./dist/models.js",
+      "require": "./dist/models.cjs"
     }
   },
   "files": ["dist", "docs"],
-  "keywords": ["ai", "nurovia", "retry"],
+  "keywords": ["ai", "llm", "nurovia", "openai", "sdk", "generate-text", "embeddings"],
   "engines": {
     "node": ">=20"
   },
@@ -29,10 +33,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Nurovia-dev/Nurovia-AI-SDK.git",
-    "directory": "packages/retry"
+    "directory": "packages/nurovia"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build": "tsup src/index.ts src/models.ts --format esm,cjs --dts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint": "biome check .",
@@ -41,8 +45,11 @@
     "postpack": "node ../../scripts/postpack.js"
   },
   "dependencies": {
+    "@nurovia/client": "workspace:*",
     "@nurovia/core": "workspace:*",
-    "@nurovia/utils": "workspace:*"
+    "@nurovia/models": "workspace:*",
+    "@nurovia/provider-openai": "workspace:*",
+    "@nurovia/provider-utils": "workspace:*"
   },
   "devDependencies": {
     "@nurovia/tsconfig": "workspace:*",

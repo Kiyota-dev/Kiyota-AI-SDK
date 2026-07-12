@@ -1,6 +1,6 @@
 {
   "name": "nurovia-ai-sdk",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Nurovia AI SDK — a provider-agnostic AI runtime",
   "license": "MIT",
