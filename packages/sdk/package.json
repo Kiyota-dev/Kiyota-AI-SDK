@@ -1,6 +1,6 @@
 {
   "name": "@kiyota/sdk",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "The Kiyota AI SDK — one install, every model.",
   "license": "MIT",
   "author": "Kiyota",
@@ -31,8 +31,19 @@
       "require": "./dist/providers/anthropic.cjs"
     }
   },
-  "files": ["dist", "docs"],
-  "keywords": ["ai", "llm", "kiyota", "openai", "sdk", "generate-text", "embeddings"],
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "keywords": [
+    "ai",
+    "llm",
+    "kiyota",
+    "openai",
+    "sdk",
+    "generate-text",
+    "embeddings"
+  ],
   "engines": {
     "node": ">=20"
   },

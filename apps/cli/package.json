@@ -8,7 +8,9 @@
   "bin": {
     "kiyota": "./dist/index.mjs"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts",
     "test": "vitest run",

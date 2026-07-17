@@ -1,6 +1,6 @@
 {
   "name": "@kiyota/events",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Event bus for the Kiyota AI SDK",
   "license": "MIT",
   "author": "Kiyota",
@@ -17,8 +17,16 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "docs"],
-  "keywords": ["ai", "kiyota", "events", "observability"],
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "keywords": [
+    "ai",
+    "kiyota",
+    "events",
+    "observability"
+  ],
   "engines": {
     "node": ">=20"
   },

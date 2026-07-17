@@ -1,6 +1,6 @@
 {
   "name": "@kiyota/middleware",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Middleware types for the Kiyota AI SDK",
   "license": "MIT",
   "author": "Kiyota",
@@ -17,8 +17,15 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "docs"],
-  "keywords": ["ai", "kiyota", "middleware"],
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "keywords": [
+    "ai",
+    "kiyota",
+    "middleware"
+  ],
   "engines": {
     "node": ">=20"
   },

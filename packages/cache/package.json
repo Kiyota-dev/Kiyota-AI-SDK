@@ -1,6 +1,6 @@
 {
   "name": "@kiyota/cache",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Caching layer for the Kiyota AI SDK",
   "license": "MIT",
   "author": "Kiyota",
@@ -17,8 +17,16 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "docs"],
-  "keywords": ["ai", "kiyota", "cache", "redis"],
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "keywords": [
+    "ai",
+    "kiyota",
+    "cache",
+    "redis"
+  ],
   "engines": {
     "node": ">=20"
   },

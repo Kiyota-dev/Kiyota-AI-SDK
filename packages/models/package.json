@@ -1,6 +1,6 @@
 {
   "name": "@kiyota/models",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Unified model registry and capability metadata for the Kiyota AI SDK",
   "license": "MIT",
   "author": "Kiyota",
@@ -16,8 +16,18 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "docs"],
-  "keywords": ["ai", "llm", "models", "kiyota", "openai", "registry"],
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "keywords": [
+    "ai",
+    "llm",
+    "models",
+    "kiyota",
+    "openai",
+    "registry"
+  ],
   "engines": {
     "node": ">=20"
   },

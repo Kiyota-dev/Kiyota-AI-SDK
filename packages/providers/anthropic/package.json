@@ -1,6 +1,6 @@
 {
   "name": "@kiyota/provider-anthropic",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Anthropic provider adapter for the Kiyota AI SDK",
   "license": "MIT",
   "author": "Kiyota",
@@ -17,8 +17,17 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "docs"],
-  "keywords": ["ai", "kiyota", "anthropic", "claude", "provider"],
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "keywords": [
+    "ai",
+    "kiyota",
+    "anthropic",
+    "claude",
+    "provider"
+  ],
   "engines": {
     "node": ">=20"
   },

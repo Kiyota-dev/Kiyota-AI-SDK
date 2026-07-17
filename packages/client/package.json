@@ -1,6 +1,6 @@
 {
   "name": "@kiyota/client",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Model-first AI functions for the Kiyota AI SDK",
   "license": "MIT",
   "author": "Kiyota",
@@ -15,8 +15,18 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "docs"],
-  "keywords": ["ai", "llm", "openai", "kiyota", "generate-text", "embeddings"],
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "keywords": [
+    "ai",
+    "llm",
+    "openai",
+    "kiyota",
+    "generate-text",
+    "embeddings"
+  ],
   "engines": {
     "node": ">=20"
   },
