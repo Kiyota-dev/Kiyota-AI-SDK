@@ -1,4 +1,4 @@
-import { ProviderError } from "@nurovia/core";
+import { ProviderError } from "@kiyota/core";
 
 export async function openaiFailedResponseHandler(response: Response): Promise<never> {
   const text = await response.text();

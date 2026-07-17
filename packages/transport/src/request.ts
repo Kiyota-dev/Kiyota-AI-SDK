@@ -1,4 +1,4 @@
-import type { RequestContext } from "@nurovia/core";
+import type { RequestContext } from "@kiyota/core";
 
 export interface RequestConfig {
   url: string;

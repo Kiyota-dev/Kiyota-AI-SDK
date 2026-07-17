@@ -14,8 +14,8 @@ describe("header and url helpers", () => {
   });
 
   it("adds user agent suffix", () => {
-    expect(withUserAgentSuffix({ "User-Agent": "my-app" }, "nurovia/1.0.0")).toEqual({
-      "User-Agent": "my-app nurovia/1.0.0",
+    expect(withUserAgentSuffix({ "User-Agent": "my-app" }, "kiyota/1.0.0")).toEqual({
+      "User-Agent": "my-app kiyota/1.0.0",
     });
   });
 

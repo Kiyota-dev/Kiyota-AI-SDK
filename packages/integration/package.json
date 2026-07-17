@@ -1,8 +1,8 @@
 {
-  "name": "@nurovia/integration",
+  "name": "@kiyota/integration",
   "version": "0.0.0",
   "private": true,
-  "description": "Integration tests for the Nurovia AI SDK",
+  "description": "Integration tests for the Kiyota AI SDK",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -12,11 +12,11 @@
     "lint:fix": "biome check . --write"
   },
   "devDependencies": {
-    "@nurovia/client": "workspace:*",
-    "@nurovia/core": "workspace:*",
-    "@nurovia/provider-openai": "workspace:*",
-    "@nurovia/tsconfig": "workspace:*",
-    "@nurovia/transport": "workspace:*",
+    "@kiyota/client": "workspace:*",
+    "@kiyota/core": "workspace:*",
+    "@kiyota/provider-openai": "workspace:*",
+    "@kiyota/tsconfig": "workspace:*",
+    "@kiyota/transport": "workspace:*",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
   }

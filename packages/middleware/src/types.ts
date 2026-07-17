@@ -1,4 +1,4 @@
-import type { ChatRequest, ChatResult, RequestContext, StreamChunk } from "@nurovia/core";
+import type { ChatRequest, ChatResult, RequestContext, StreamChunk } from "@kiyota/core";
 
 export interface MiddlewareContext {
   request: ChatRequest;

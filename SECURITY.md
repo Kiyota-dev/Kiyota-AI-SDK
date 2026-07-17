@@ -8,8 +8,8 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in the Nurovia AI SDK, please report it
-by emailing security@nurovia.dev. Do not open a public issue.
+If you discover a security vulnerability in the Kiyota AI SDK, please report it
+by emailing security@kiyota.dev. Do not open a public issue.
 
 We will acknowledge receipt within 48 hours and provide a detailed response
 within 7 days, including a timeline for a fix.

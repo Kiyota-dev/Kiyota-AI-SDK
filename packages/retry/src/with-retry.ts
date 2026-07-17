@@ -4,8 +4,8 @@ import {
   RetryError,
   TimeoutError,
   ValidationError,
-} from "@nurovia/core";
-import type { RequestContext } from "@nurovia/core";
+} from "@kiyota/core";
+import type { RequestContext } from "@kiyota/core";
 import { type BackoffPolicy, calculateDelay } from "./policies.js";
 
 export interface RetryOptions {

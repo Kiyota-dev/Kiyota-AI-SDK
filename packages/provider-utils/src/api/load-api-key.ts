@@ -1,4 +1,4 @@
-import { ConfigurationError } from "@nurovia/core";
+import { ConfigurationError } from "@kiyota/core";
 
 export function loadApiKey({
   apiKey,

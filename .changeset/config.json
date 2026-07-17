@@ -8,9 +8,9 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "@nurovia/cli",
-    "@nurovia/integration",
-    "@nurovia/tsconfig",
+    "@kiyota/cli",
+    "@kiyota/integration",
+    "@kiyota/tsconfig",
     "basic-chat",
     "streaming",
     "custom-provider"

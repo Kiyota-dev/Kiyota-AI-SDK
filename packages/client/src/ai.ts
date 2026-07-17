@@ -6,10 +6,10 @@ import type {
   Provider,
   RequestContext,
   StreamChunk,
-} from "@nurovia/core";
-import { ConfigurationError, type MessageRole } from "@nurovia/core";
-import { withRetry } from "@nurovia/retry";
-import { createRequestContext } from "@nurovia/transport";
+} from "@kiyota/core";
+import { ConfigurationError, type MessageRole } from "@kiyota/core";
+import { withRetry } from "@kiyota/retry";
+import { createRequestContext } from "@kiyota/transport";
 import type { AIConfig } from "./config.js";
 import { ProviderRegistry } from "./registry.js";
 
@@ -20,9 +20,9 @@ function warnAboutDeprecation(): void {
   deprecationWarningShown = true;
 
   console.warn(
-    "[Nurovia AI SDK] The `AI` class and registry-based API are deprecated and will be removed in v0.3.0. " +
+    "[Kiyota AI SDK] The `AI` class and registry-based API are deprecated and will be removed in v0.3.0. " +
       "Migrate to the model-first API: `generateText({ model: openai.languageModel('gpt-4o'), messages })`. " +
-      "See https://github.com/Nurovia-dev/Nurovia-AI-SDK/blob/main/docs/migrate-v0.1-to-v0.2.md",
+      "See https://github.com/Kiyota-dev/Kiyota-AI-SDK/blob/main/docs/migrate-v0.1-to-v0.2.md",
   );
 }
 

@@ -25,7 +25,7 @@ import { openaiModels } from "./providers/openai.js";
  *
  * @example
  * ```ts
- * import { models } from "@nurovia/models";
+ * import { models } from "@kiyota/models";
  *
  * const model = models.openai.gpt4o;
  * console.log(model.capabilities.vision); // true

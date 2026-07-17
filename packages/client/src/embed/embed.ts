@@ -1,4 +1,4 @@
-import type { EmbeddingModelV1 } from "@nurovia/core";
+import type { EmbeddingModelV1 } from "@kiyota/core";
 
 export interface EmbedOptions {
   model: EmbeddingModelV1;

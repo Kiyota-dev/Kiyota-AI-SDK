@@ -1,5 +1,5 @@
-import { ConfigurationError, MessageRole } from "@nurovia/core";
-import type { Provider } from "@nurovia/core";
+import { ConfigurationError, MessageRole } from "@kiyota/core";
+import type { Provider } from "@kiyota/core";
 import { describe, expect, it } from "vitest";
 import { AI } from "../src/index.js";
 

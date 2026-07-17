@@ -1,4 +1,4 @@
-import { ProviderError } from "@nurovia/core";
+import { ProviderError } from "@kiyota/core";
 
 export interface JsonResponseHandlerOptions<T> {
   schema?: {

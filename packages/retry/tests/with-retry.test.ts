@@ -1,4 +1,4 @@
-import { ProviderError, RetryError, ValidationError } from "@nurovia/core";
+import { ProviderError, RetryError, ValidationError } from "@kiyota/core";
 import { describe, expect, it, vi } from "vitest";
 import { defaultRetryable, withRetry } from "../src/index.js";
 

@@ -5,10 +5,10 @@ import type {
   ProviderCapabilities,
   ProviderConfig,
   StreamChunk,
-} from "@nurovia/core";
-import { ProviderError } from "@nurovia/core";
-import type { Transport } from "@nurovia/transport";
-import { isNonEmptyString } from "@nurovia/utils";
+} from "@kiyota/core";
+import { ProviderError } from "@kiyota/core";
+import type { Transport } from "@kiyota/transport";
+import { isNonEmptyString } from "@kiyota/utils";
 import { OpenAIChat } from "./chat.js";
 
 export interface OpenAIProviderConfig extends ProviderConfig {

@@ -1,4 +1,4 @@
-import { ProviderError } from "@nurovia/core";
+import { ProviderError } from "@kiyota/core";
 import { describe, expect, it } from "vitest";
 import { OpenAIProvider } from "../src/index.js";
 

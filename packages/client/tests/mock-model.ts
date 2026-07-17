@@ -6,7 +6,7 @@ import type {
   LanguageModelV1GenerateResult,
   LanguageModelV1StreamPart,
   LanguageModelV1StreamResult,
-} from "@nurovia/core";
+} from "@kiyota/core";
 
 export function createMockLanguageModel(
   generate: (options: LanguageModelV1CallOptions) => Promise<LanguageModelV1GenerateResult>,

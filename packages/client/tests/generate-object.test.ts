@@ -5,7 +5,7 @@ import { createMockLanguageModel } from "./mock-model.js";
 describe("generateObject", () => {
   it("parses JSON output", async () => {
     const model = createMockLanguageModel(async () => ({
-      text: '{"name":"Nurovia","version":2}',
+      text: '{"name":"Kiyota","version":2}',
       finishReason: "stop",
       usage: { promptTokens: 5, completionTokens: 8, totalTokens: 13 },
     }));
@@ -15,7 +15,7 @@ describe("generateObject", () => {
       messages: [{ role: "user", content: "Give me JSON" }],
     });
 
-    expect(result.object).toEqual({ name: "Nurovia", version: 2 });
+    expect(result.object).toEqual({ name: "Kiyota", version: 2 });
     expect(result.usage).toEqual({
       promptTokens: 5,
       completionTokens: 8,

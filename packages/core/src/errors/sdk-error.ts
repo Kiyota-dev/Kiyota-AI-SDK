@@ -1,4 +1,4 @@
-export const SDK_ERROR_MARKER = "nurovia.ai.error";
+export const SDK_ERROR_MARKER = "kiyota.ai.error";
 const sdkErrorSymbol = Symbol.for(SDK_ERROR_MARKER);
 
 export interface SDKErrorOptions {

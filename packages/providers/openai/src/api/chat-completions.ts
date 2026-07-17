@@ -1,5 +1,5 @@
-import type { ChatRequest, Message } from "@nurovia/core";
-import { FetchTransport, type Transport } from "@nurovia/transport";
+import type { ChatRequest, Message } from "@kiyota/core";
+import { FetchTransport, type Transport } from "@kiyota/transport";
 import type { OpenAIChatCompletionRequest, OpenAIChatCompletionResponse } from "../types.js";
 
 export interface ChatCompletionsOptions {

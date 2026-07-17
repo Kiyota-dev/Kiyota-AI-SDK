@@ -1,5 +1,5 @@
-import { ProviderError, type RequestContext, TimeoutError } from "@nurovia/core";
-import { generateId } from "@nurovia/utils";
+import { ProviderError, type RequestContext, TimeoutError } from "@kiyota/core";
+import { generateId } from "@kiyota/utils";
 import { type RequestConfig, buildHeaders } from "./request.js";
 import type { TransportResponse, TransportResponseChunk } from "./response.js";
 import type { Transport } from "./transport.js";

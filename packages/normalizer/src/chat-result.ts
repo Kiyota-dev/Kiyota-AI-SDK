@@ -1,4 +1,4 @@
-import type { ChatResult, TokenUsage } from "@nurovia/core";
+import type { ChatResult, TokenUsage } from "@kiyota/core";
 
 export interface ChatResultInput {
   content: string;

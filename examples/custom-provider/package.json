@@ -9,11 +9,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@nurovia/client": "workspace:*",
-    "@nurovia/core": "workspace:*"
+    "@kiyota/client": "workspace:*",
+    "@kiyota/core": "workspace:*"
   },
   "devDependencies": {
-    "@nurovia/tsconfig": "workspace:*",
+    "@kiyota/tsconfig": "workspace:*",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
   }

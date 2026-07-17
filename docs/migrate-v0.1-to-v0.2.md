@@ -1,6 +1,6 @@
 # Migrating from v0.1 to v0.2
 
-Nurovia AI SDK v0.2.0 introduces a model-first architecture inspired by the
+Kiyota AI SDK v0.2.0 introduces a model-first architecture inspired by the
 Vercel AI SDK. Instead of registering providers on an `AI` instance and calling
 `ai.chat(...)`, you now create a model object and pass it directly to an AI
 function.
@@ -11,8 +11,8 @@ deprecation warning and will be removed in v0.3.0.
 ## Before (v0.1.0)
 
 ```typescript
-import { AI } from "@nurovia/client";
-import { OpenAIProvider } from "@nurovia/provider-openai";
+import { AI } from "@kiyota/client";
+import { OpenAIProvider } from "@kiyota/provider-openai";
 
 const ai = new AI({ logger: console });
 
@@ -34,8 +34,8 @@ console.log(result.content);
 ## After (v0.2.0)
 
 ```typescript
-import { generateText } from "@nurovia/client";
-import { createOpenAI } from "@nurovia/provider-openai";
+import { generateText } from "@kiyota/client";
+import { createOpenAI } from "@kiyota/provider-openai";
 
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -56,8 +56,8 @@ console.log(text);
 - AI functions (`generateText`, `streamText`, `embed`, `embedMany`,
   `generateObject`, `streamObject`) accept a `model` and options.
 - `OpenAIProvider` is replaced by `createOpenAI`.
-- `@nurovia/provider-utils` is the shared utility layer for building providers.
-- Zod is optional; use the `@nurovia/provider-utils/zod` subpath export.
+- `@kiyota/provider-utils` is the shared utility layer for building providers.
+- Zod is optional; use the `@kiyota/provider-utils/zod` subpath export.
 
 ## Provider factory methods
 
@@ -69,7 +69,7 @@ console.log(text);
 ## Migrating streaming
 
 ```typescript
-import { streamText } from "@nurovia/client";
+import { streamText } from "@kiyota/client";
 
 const { textStream, text } = await streamText({
   model: openai.languageModel("gpt-4o"),
@@ -86,7 +86,7 @@ console.log("\nFull text:", await text);
 ## Migrating embeddings
 
 ```typescript
-import { embed, embedMany } from "@nurovia/client";
+import { embed, embedMany } from "@kiyota/client";
 
 const { embedding } = await embed({
   model: openai.embedding("text-embedding-3-small"),

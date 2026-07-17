@@ -1,5 +1,5 @@
-import { AI } from "@nurovia/client";
-import { OpenAIProvider } from "@nurovia/provider-openai";
+import { AI } from "@kiyota/client";
+import { OpenAIProvider } from "@kiyota/provider-openai";
 
 const ai = new AI({
   logger: console,
@@ -15,7 +15,7 @@ async function main() {
   const result = await ai.chat({
     provider: "openai",
     model: "gpt-4o",
-    messages: [{ role: "user", content: "Hello, Nurovia!" }],
+    messages: [{ role: "user", content: "Hello, Kiyota!" }],
   });
 
   if (Symbol.asyncIterator in result) {

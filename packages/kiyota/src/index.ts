@@ -5,15 +5,15 @@ import {
   generateText,
   streamObject,
   streamText,
-} from "@nurovia/client";
-import type { EmbeddingModelV1, LanguageModelV1 } from "@nurovia/core";
-import { requireCapability, resolveModel } from "@nurovia/models";
-import { createOpenAI } from "@nurovia/provider-openai";
-import type { NuroviaConfig } from "./config.js";
+} from "@kiyota/client";
+import type { EmbeddingModelV1, LanguageModelV1 } from "@kiyota/core";
+import { requireCapability, resolveModel } from "@kiyota/models";
+import { createOpenAI } from "@kiyota/provider-openai";
+import type { KiyotaConfig } from "./config.js";
 
-export type { NuroviaConfig } from "./config.js";
+export type { KiyotaConfig } from "./config.js";
 
-// Re-export core AI functions so users can import everything from "nurovia".
+// Re-export core AI functions so users can import everything from "kiyota".
 export {
   embed,
   embedMany,
@@ -21,48 +21,48 @@ export {
   generateText,
   streamObject,
   streamText,
-} from "@nurovia/client";
+} from "@kiyota/client";
 
 export type {
   GenerateTextOptions,
   GenerateTextResult,
-} from "@nurovia/client";
+} from "@kiyota/client";
 export type {
   StreamTextOptions,
   StreamTextResult,
-} from "@nurovia/client";
+} from "@kiyota/client";
 export type {
   EmbedOptions,
   EmbedResult,
   EmbedManyOptions,
   EmbedManyResult,
-} from "@nurovia/client";
+} from "@kiyota/client";
 export type {
   GenerateObjectOptions,
   GenerateObjectResult,
-} from "@nurovia/client";
+} from "@kiyota/client";
 export type {
   StreamObjectOptions,
   StreamObjectResult,
-} from "@nurovia/client";
+} from "@kiyota/client";
 
 class ProviderNotConfiguredError extends Error {
   constructor(provider: string) {
     super(
-      `Provider "${provider}" is not configured. Pass it to nurovia({ ${provider}: { apiKey: "..." } }).`,
+      `Provider "${provider}" is not configured. Pass it to kiyota({ ${provider}: { apiKey: "..." } }).`,
     );
     this.name = "ProviderNotConfiguredError";
   }
 }
 
 /**
- * Create a Nurovia SDK instance with configured providers and a bound model registry.
+ * Create a Kiyota SDK instance with configured providers and a bound model registry.
  *
  * @example
  * ```ts
- * import { nurovia } from "nurovia";
+ * import { kiyota } from "kiyota";
  *
- * const ai = nurovia({
+ * const ai = kiyota({
  *   openai: { apiKey: process.env.OPENAI_API_KEY },
  * });
  *
@@ -72,7 +72,7 @@ class ProviderNotConfiguredError extends Error {
  * });
  * ```
  */
-export function nurovia(config: NuroviaConfig = {}) {
+export function kiyota(config: KiyotaConfig = {}) {
   const openai = config.openai ? createOpenAI(config.openai) : undefined;
 
   const requireOpenAI = () => {

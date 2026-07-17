@@ -1,4 +1,4 @@
-import type { EmbeddingModelV1, LanguageModelV1 } from "@nurovia/core";
+import type { EmbeddingModelV1, LanguageModelV1 } from "@kiyota/core";
 import { describe, expectTypeOf, it } from "vitest";
 import { embed, embedMany, generateText, streamText } from "../src/index.js";
 

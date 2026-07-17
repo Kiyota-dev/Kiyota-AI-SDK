@@ -1,7 +1,7 @@
-import { AI } from "@nurovia/client";
-import { MessageRole } from "@nurovia/core";
-import { OpenAIProvider } from "@nurovia/provider-openai";
-import type { Transport, TransportResponse } from "@nurovia/transport";
+import { AI } from "@kiyota/client";
+import { MessageRole } from "@kiyota/core";
+import { OpenAIProvider } from "@kiyota/provider-openai";
+import type { Transport, TransportResponse } from "@kiyota/transport";
 import { describe, expect, it } from "vitest";
 
 describe("integration: AI client + OpenAI provider", () => {

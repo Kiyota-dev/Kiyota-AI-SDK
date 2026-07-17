@@ -6,7 +6,7 @@ import type {
   LanguageModelV1StreamPart,
   LanguageModelV1StreamResult,
   Warning,
-} from "@nurovia/core";
+} from "@kiyota/core";
 import {
   type FetchFunction,
   combineHeaders,
@@ -14,7 +14,7 @@ import {
   createJsonResponseHandler,
   parseProviderOptions,
   postJsonToApi,
-} from "@nurovia/provider-utils";
+} from "@kiyota/provider-utils";
 import { openaiFailedResponseHandler } from "../openai-error.js";
 import type { OpenAIChatCompletionResponse, OpenAIStreamChunk } from "../types.js";
 import type { OpenAIChatModelId, OpenAIChatSettings } from "./openai-chat-options.js";

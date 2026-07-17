@@ -4,7 +4,7 @@ import {
   loadOptionalSetting,
   withUserAgentSuffix,
   withoutTrailingSlash,
-} from "@nurovia/provider-utils";
+} from "@kiyota/provider-utils";
 import { OpenAIChatLanguageModel } from "./chat/openai-chat-language-model.js";
 import type { OpenAIChatModelId } from "./chat/openai-chat-options.js";
 import {
@@ -45,7 +45,7 @@ export function createOpenAI(options: OpenAIProviderSettings = {}) {
         "OpenAI-Project": options.project,
         ...options.headers,
       },
-      "nurovia-ai-sdk/0.2.0",
+      "kiyota-ai-sdk/0.2.0",
     );
 
   const createLanguageModel = (modelId: OpenAIChatModelId) =>

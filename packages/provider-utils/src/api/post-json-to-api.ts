@@ -1,4 +1,4 @@
-import { ProviderError, TimeoutError } from "@nurovia/core";
+import { ProviderError, TimeoutError } from "@kiyota/core";
 
 export type FetchFunction = typeof fetch;
 

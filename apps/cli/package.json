@@ -1,12 +1,12 @@
 {
-  "name": "@nurovia/cli",
+  "name": "@kiyota/cli",
   "version": "0.1.0",
   "private": true,
-  "description": "CLI for the Nurovia AI SDK",
+  "description": "CLI for the Kiyota AI SDK",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "nurovia": "./dist/index.mjs"
+    "kiyota": "./dist/index.mjs"
   },
   "files": ["dist"],
   "scripts": {
@@ -17,10 +17,10 @@
     "lint:fix": "biome check . --write"
   },
   "dependencies": {
-    "@nurovia/client": "workspace:*"
+    "@kiyota/client": "workspace:*"
   },
   "devDependencies": {
-    "@nurovia/tsconfig": "workspace:*",
+    "@kiyota/tsconfig": "workspace:*",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"

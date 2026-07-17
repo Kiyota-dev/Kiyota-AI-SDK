@@ -1,4 +1,4 @@
-import type { ChatRequest, ChatResult, StreamChunk } from "@nurovia/core";
+import type { ChatRequest, ChatResult, StreamChunk } from "@kiyota/core";
 import { ChatCompletionsAPI, type ChatCompletionsOptions } from "./api/chat-completions.js";
 import { normalizeOpenAIChatResult, normalizeOpenAIStreamChunk } from "./normalize.js";
 import type { OpenAIStreamChunk } from "./types.js";

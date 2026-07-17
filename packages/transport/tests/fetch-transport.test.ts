@@ -1,4 +1,4 @@
-import { ProviderError, TimeoutError } from "@nurovia/core";
+import { ProviderError, TimeoutError } from "@kiyota/core";
 import { describe, expect, it } from "vitest";
 import { FetchTransport } from "../src/index.js";
 

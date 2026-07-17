@@ -1,5 +1,5 @@
-import type { Provider } from "@nurovia/core";
-import { ConfigurationError } from "@nurovia/core";
+import type { Provider } from "@kiyota/core";
+import { ConfigurationError } from "@kiyota/core";
 
 export class ProviderRegistry {
   private readonly providers = new Map<string, Provider>();

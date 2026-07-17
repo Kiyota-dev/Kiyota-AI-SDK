@@ -1,4 +1,4 @@
-import { ValidationError } from "@nurovia/core";
+import { ValidationError } from "@kiyota/core";
 
 export function assertDefined<T>(value: T | undefined, message: string): T {
   if (value === undefined) {

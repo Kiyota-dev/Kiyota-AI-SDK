@@ -1,10 +1,10 @@
-import type { EmbeddingModelV1, EmbeddingModelV1EmbedResult } from "@nurovia/core";
+import type { EmbeddingModelV1, EmbeddingModelV1EmbedResult } from "@kiyota/core";
 import {
   type FetchFunction,
   combineHeaders,
   createJsonResponseHandler,
   postJsonToApi,
-} from "@nurovia/provider-utils";
+} from "@kiyota/provider-utils";
 import { openaiFailedResponseHandler } from "../openai-error.js";
 
 export type OpenAIEmbeddingModelId =

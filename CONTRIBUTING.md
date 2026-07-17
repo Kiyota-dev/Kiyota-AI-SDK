@@ -1,4 +1,4 @@
-# Contributing to Nurovia AI SDK
+# Contributing to Kiyota AI SDK
 
 Thank you for your interest in contributing!
 

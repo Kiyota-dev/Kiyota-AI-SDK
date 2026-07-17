@@ -30,7 +30,7 @@ const docsCopied = await copyIfMissing(
 if (docsCopied) copied.push("docs");
 
 await writeFile(
-  resolve(cwd, ".nurovia-prepack.json"),
+  resolve(cwd, ".kiyota-prepack.json"),
   JSON.stringify(copied, null, 2),
 );
 

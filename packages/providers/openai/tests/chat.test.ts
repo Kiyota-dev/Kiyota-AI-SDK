@@ -1,5 +1,5 @@
-import { MessageRole } from "@nurovia/core";
-import type { Transport, TransportResponse } from "@nurovia/transport";
+import { MessageRole } from "@kiyota/core";
+import type { Transport, TransportResponse } from "@kiyota/transport";
 import { describe, expect, it } from "vitest";
 import { OpenAIChat } from "../src/index.js";
 

@@ -4,7 +4,7 @@ import type {
   LanguageModelV1StreamPart,
   LanguageModelV1Usage,
   Warning,
-} from "@nurovia/core";
+} from "@kiyota/core";
 import {
   type SimpleMessage,
   convertToLanguageModelPrompt,

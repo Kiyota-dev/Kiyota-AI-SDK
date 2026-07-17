@@ -1,5 +1,5 @@
-import type { ChatResult, StreamChunk, TokenUsage } from "@nurovia/core";
-import { normalizeChatResult, normalizeStreamChunk } from "@nurovia/normalizer";
+import type { ChatResult, StreamChunk, TokenUsage } from "@kiyota/core";
+import { normalizeChatResult, normalizeStreamChunk } from "@kiyota/normalizer";
 import type { OpenAIChatCompletionResponse, OpenAIStreamChunk } from "./types.js";
 
 export function normalizeOpenAIChatResult(

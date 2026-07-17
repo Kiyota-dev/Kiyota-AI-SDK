@@ -1,4 +1,4 @@
-import type { LanguageModelV1 } from "@nurovia/core";
+import type { LanguageModelV1 } from "@kiyota/core";
 import {
   type SimpleMessage,
   convertToLanguageModelPrompt,

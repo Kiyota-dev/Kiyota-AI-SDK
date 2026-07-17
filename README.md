@@ -1,4 +1,4 @@
-# Nurovia AI SDK
+# Kiyota AI SDK
 
 A provider-agnostic AI runtime for building AI applications with a single,
 unified API.
@@ -10,21 +10,21 @@ Build once. Run on every AI model.
 ## Installation
 
 ```bash
-npm install nurovia
+npm install kiyota
 ```
 
 ## Quickstart
 
 ```typescript
-import { nurovia } from "nurovia";
+import { kiyota } from "kiyota";
 
-const ai = nurovia({
+const ai = kiyota({
   openai: { apiKey: process.env.OPENAI_API_KEY },
 });
 
 const { text } = await ai.generateText({
   model: ai.models.openai.gpt4o,
-  messages: [{ role: "user", content: "Hello, Nurovia!" }],
+  messages: [{ role: "user", content: "Hello, Kiyota!" }],
 });
 
 console.log(text);
@@ -50,14 +50,14 @@ console.log("\nFull text:", await text);
 ```typescript
 const { embedding } = await ai.embed({
   model: ai.models.openai.textEmbedding3Small,
-  value: "Hello, Nurovia!",
+  value: "Hello, Kiyota!",
 });
 ```
 
 ### Structured output
 
 ```typescript
-import { zodSchema } from "nurovia/models";
+import { zodSchema } from "kiyota/models";
 import { z } from "zod";
 
 const schema = z.object({
@@ -77,7 +77,7 @@ console.log(object);
 ### Model registry
 
 ```typescript
-import { models, estimateCost, supports } from "nurovia/models";
+import { models, estimateCost, supports } from "kiyota/models";
 
 const model = models.openai.gpt4o;
 console.log(model.capabilities.vision); // true
@@ -90,12 +90,12 @@ console.log(estimateCost(model, 1_000_000, 500_000)); // ~7.5 USD
 If you prefer smaller packages, install only what you need:
 
 ```bash
-npm install @nurovia/client @nurovia/provider-openai
+npm install @kiyota/client @kiyota/provider-openai
 ```
 
 ```typescript
-import { generateText } from "@nurovia/client";
-import { createOpenAI } from "@nurovia/provider-openai";
+import { generateText } from "@kiyota/client";
+import { createOpenAI } from "@kiyota/provider-openai";
 
 const openai = createOpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
@@ -114,17 +114,17 @@ warning. It will be removed in v0.3.0. See the [migration guide](docs/migrate-v0
 
 The SDK is organized into focused packages with strict dependency boundaries:
 
-- `nurovia` — single-install meta-package with providers and model registry
-- `@nurovia/models` — unified model registry, capabilities, and pricing
-- `@nurovia/client` — model-first AI functions (`generateText`, `streamText`, `embed`, `embedMany`, `generateObject`, `streamObject`)
-- `@nurovia/core` — interfaces, types, errors, constants
-- `@nurovia/provider-openai` — OpenAI provider adapter
-- `@nurovia/provider-utils` — shared provider utilities and optional Zod adapter
-- `@nurovia/utils` — shared utilities
-- `@nurovia/transport` — HTTP transport layer
-- `@nurovia/retry` — retry policies
-- `@nurovia/normalizer` — response normalization
-- `@nurovia/middleware` — middleware types
+- `kiyota` — single-install meta-package with providers and model registry
+- `@kiyota/models` — unified model registry, capabilities, and pricing
+- `@kiyota/client` — model-first AI functions (`generateText`, `streamText`, `embed`, `embedMany`, `generateObject`, `streamObject`)
+- `@kiyota/core` — interfaces, types, errors, constants
+- `@kiyota/provider-openai` — OpenAI provider adapter
+- `@kiyota/provider-utils` — shared provider utilities and optional Zod adapter
+- `@kiyota/utils` — shared utilities
+- `@kiyota/transport` — HTTP transport layer
+- `@kiyota/retry` — retry policies
+- `@kiyota/normalizer` — response normalization
+- `@kiyota/middleware` — middleware types
 
 ## Documentation
 
@@ -135,4 +135,4 @@ The SDK is organized into focused packages with strict dependency boundaries:
 
 ## License
 
-MIT © Nurovia
+MIT © Kiyota

@@ -8,7 +8,7 @@ async function main(): Promise<void> {
       await chatCommand(args);
       break;
     default:
-      console.error("Usage: nurovia <command> [args]");
+      console.error("Usage: kiyota <command> [args]");
       console.error("Commands: chat");
       process.exit(1);
   }

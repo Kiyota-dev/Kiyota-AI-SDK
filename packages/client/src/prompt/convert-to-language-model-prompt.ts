@@ -1,4 +1,4 @@
-import type { LanguageModelV1Prompt } from "@nurovia/core";
+import type { LanguageModelV1Prompt } from "@kiyota/core";
 
 export interface SimpleMessage {
   role: "system" | "user" | "assistant";

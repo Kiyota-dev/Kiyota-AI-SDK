@@ -1,11 +1,11 @@
-import { AI } from "@nurovia/client";
+import { AI } from "@kiyota/client";
 import type {
   ChatRequest,
   ChatResult,
   Provider,
   ProviderCapabilities,
   StreamChunk,
-} from "@nurovia/core";
+} from "@kiyota/core";
 
 class EchoProvider implements Provider {
   readonly id = "echo";

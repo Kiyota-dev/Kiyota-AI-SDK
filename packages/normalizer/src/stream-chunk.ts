@@ -1,4 +1,4 @@
-import type { StreamChunk } from "@nurovia/core";
+import type { StreamChunk } from "@kiyota/core";
 
 export interface StreamChunkInput {
   content: string;

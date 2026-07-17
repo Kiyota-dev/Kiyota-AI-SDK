@@ -3,7 +3,7 @@ import type {
   LanguageModelV1GenerateResult,
   LanguageModelV1Usage,
   Warning,
-} from "@nurovia/core";
+} from "@kiyota/core";
 import {
   type SimpleMessage,
   convertToLanguageModelPrompt,

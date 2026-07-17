@@ -1,9 +1,9 @@
 {
-  "name": "@nurovia/provider-openai",
+  "name": "@kiyota/provider-openai",
   "version": "0.2.1",
-  "description": "OpenAI provider adapter for the Nurovia AI SDK",
+  "description": "OpenAI provider adapter for the Kiyota AI SDK",
   "license": "MIT",
-  "author": "Nurovia",
+  "author": "Kiyota",
   "type": "module",
   "sideEffects": false,
   "source": "./src/index.ts",
@@ -18,7 +18,7 @@
     }
   },
   "files": ["dist", "docs"],
-  "keywords": ["ai", "nurovia", "openai", "provider"],
+  "keywords": ["ai", "kiyota", "openai", "provider"],
   "engines": {
     "node": ">=20"
   },
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nurovia-dev/Nurovia-AI-SDK.git",
+    "url": "https://github.com/Kiyota-dev/Kiyota-AI-SDK.git",
     "directory": "packages/providers/openai"
   },
   "scripts": {
@@ -41,14 +41,14 @@
     "postpack": "node ../../../scripts/postpack.js"
   },
   "dependencies": {
-    "@nurovia/core": "workspace:*",
-    "@nurovia/normalizer": "workspace:*",
-    "@nurovia/provider-utils": "workspace:*",
-    "@nurovia/transport": "workspace:*",
-    "@nurovia/utils": "workspace:*"
+    "@kiyota/core": "workspace:*",
+    "@kiyota/normalizer": "workspace:*",
+    "@kiyota/provider-utils": "workspace:*",
+    "@kiyota/transport": "workspace:*",
+    "@kiyota/utils": "workspace:*"
   },
   "devDependencies": {
-    "@nurovia/tsconfig": "workspace:*",
+    "@kiyota/tsconfig": "workspace:*",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"

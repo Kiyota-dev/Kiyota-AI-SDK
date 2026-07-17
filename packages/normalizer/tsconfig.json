@@ -1,5 +1,5 @@
 {
-  "extends": "@nurovia/tsconfig/base.json",
+  "extends": "@kiyota/tsconfig/base.json",
   "compilerOptions": {
     "outDir": "./dist"
   },

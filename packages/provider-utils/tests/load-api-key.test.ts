@@ -1,4 +1,4 @@
-import { ConfigurationError } from "@nurovia/core";
+import { ConfigurationError } from "@kiyota/core";
 import { describe, expect, it } from "vitest";
 import { loadApiKey } from "../src/api/load-api-key.js";
 

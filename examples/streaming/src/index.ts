@@ -1,5 +1,5 @@
-import { AI } from "@nurovia/client";
-import { OpenAIProvider } from "@nurovia/provider-openai";
+import { AI } from "@kiyota/client";
+import { OpenAIProvider } from "@kiyota/provider-openai";
 
 const ai = new AI();
 

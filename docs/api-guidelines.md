@@ -11,7 +11,7 @@ We follow [Semantic Versioning](https://semver.org/):
 
 A breaking change requires a Changeset and a minor/major version bump:
 
-- Removing or renaming exported types, interfaces, functions, or classes from `@nurovia/core` or `@nurovia/client`.
+- Removing or renaming exported types, interfaces, functions, or classes from `@kiyota/core` or `@kiyota/client`.
 - Changing the return type of `Provider.chat()` or `Provider.stream()`.
 - Modifying `AIConfig` in a way that invalidates existing configurations.
 - Changing error class hierarchies in a way that breaks `instanceof` checks.
