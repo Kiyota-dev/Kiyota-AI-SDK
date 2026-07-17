@@ -1,9 +1,11 @@
+import { anthropicModels } from "./providers/anthropic.js";
 import { openaiModels } from "./providers/openai.js";
 import type { ModelCapabilities, ModelDefinition, ModelRef } from "./types.js";
 import { ModelNotSupportedError } from "./types.js";
 
 export const registry: Record<string, ModelDefinition> = {
   ...openaiModels,
+  ...anthropicModels,
 };
 
 /** List every registered model. */

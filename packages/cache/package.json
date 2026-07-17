@@ -1,10 +1,12 @@
 {
-  "name": "@kiyota/client",
+  "name": "@kiyota/cache",
   "version": "0.2.1",
-  "description": "Model-first AI functions for the Kiyota AI SDK",
+  "description": "Caching layer for the Kiyota AI SDK",
   "license": "MIT",
   "author": "Kiyota",
   "type": "module",
+  "sideEffects": false,
+  "source": "./src/index.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -16,7 +18,7 @@
     }
   },
   "files": ["dist", "docs"],
-  "keywords": ["ai", "llm", "openai", "kiyota", "generate-text", "embeddings"],
+  "keywords": ["ai", "kiyota", "cache", "redis"],
   "engines": {
     "node": ">=20"
   },
@@ -27,7 +29,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Kiyota-dev/Kiyota-AI-SDK.git",
-    "directory": "packages/client"
+    "directory": "packages/cache"
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
@@ -38,21 +40,19 @@
     "prepack": "node ../../scripts/prepack.js",
     "postpack": "node ../../scripts/postpack.js"
   },
-  "dependencies": {
-    "@kiyota/cache": "workspace:*",
-    "@kiyota/core": "workspace:*",
-    "@kiyota/events": "workspace:*",
-    "@kiyota/middleware": "workspace:*",
-    "@kiyota/normalizer": "workspace:*",
-    "@kiyota/provider-utils": "workspace:*",
-    "@kiyota/retry": "workspace:*",
-    "@kiyota/transport": "workspace:*",
-    "@kiyota/utils": "workspace:*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@kiyota/tsconfig": "workspace:*",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
+  },
+  "peerDependencies": {
+    "redis": "^4.7.0"
+  },
+  "peerDependenciesMeta": {
+    "redis": {
+      "optional": true
+    }
   }
 }

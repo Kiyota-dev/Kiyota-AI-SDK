@@ -8,12 +8,13 @@ import {
 } from "@kiyota/client";
 import type { EmbeddingModelV1, LanguageModelV1 } from "@kiyota/core";
 import { requireCapability, resolveModel } from "@kiyota/models";
+import { createAnthropic } from "@kiyota/provider-anthropic";
 import { createOpenAI } from "@kiyota/provider-openai";
 import type { KiyotaConfig } from "./config.js";
 
 export type { KiyotaConfig } from "./config.js";
 
-// Re-export core AI functions so users can import everything from "kiyota".
+// Re-export core AI functions so users can import everything from "@kiyota/sdk".
 export {
   embed,
   embedMany,
@@ -60,7 +61,7 @@ class ProviderNotConfiguredError extends Error {
  *
  * @example
  * ```ts
- * import { kiyota } from "kiyota";
+ * import { kiyota } from "@kiyota/sdk";
  *
  * const ai = kiyota({
  *   openai: { apiKey: process.env.OPENAI_API_KEY },
@@ -74,6 +75,7 @@ class ProviderNotConfiguredError extends Error {
  */
 export function kiyota(config: KiyotaConfig = {}) {
   const openai = config.openai ? createOpenAI(config.openai) : undefined;
+  const anthropic = config.anthropic ? createAnthropic(config.anthropic) : undefined;
 
   const requireOpenAI = () => {
     if (!openai) {
@@ -82,9 +84,21 @@ export function kiyota(config: KiyotaConfig = {}) {
     return openai;
   };
 
+  const requireAnthropic = () => {
+    if (!anthropic) {
+      throw new ProviderNotConfiguredError("anthropic");
+    }
+    return anthropic;
+  };
+
   const chatModel = (modelId: string): LanguageModelV1 => {
     const definition = resolveModel(modelId);
     requireCapability(definition, "chat");
+
+    if (definition.provider === "anthropic") {
+      return requireAnthropic().languageModel(modelId);
+    }
+
     return requireOpenAI().languageModel(modelId);
   };
 
@@ -105,6 +119,9 @@ export function kiyota(config: KiyotaConfig = {}) {
     providers: {
       get openai() {
         return requireOpenAI();
+      },
+      get anthropic() {
+        return requireAnthropic();
       },
     },
 
@@ -139,6 +156,23 @@ export function kiyota(config: KiyotaConfig = {}) {
         },
         get textEmbeddingAda002(): EmbeddingModelV1 {
           return embeddingModel("text-embedding-ada-002");
+        },
+      },
+      anthropic: {
+        get claude35Sonnet(): LanguageModelV1 {
+          return chatModel("claude-3-5-sonnet-20241022");
+        },
+        get claude35Haiku(): LanguageModelV1 {
+          return chatModel("claude-3-5-haiku-20241022");
+        },
+        get claude3Opus(): LanguageModelV1 {
+          return chatModel("claude-3-opus-20240229");
+        },
+        get claude3Sonnet(): LanguageModelV1 {
+          return chatModel("claude-3-sonnet-20240229");
+        },
+        get claude3Haiku(): LanguageModelV1 {
+          return chatModel("claude-3-haiku-20240307");
         },
       },
     },

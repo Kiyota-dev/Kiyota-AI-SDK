@@ -1,0 +1,72 @@
+{
+  "name": "@kiyota/sdk",
+  "version": "0.2.1",
+  "description": "The Kiyota AI SDK — one install, every model.",
+  "license": "MIT",
+  "author": "Kiyota",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./models": {
+      "types": "./dist/models.d.ts",
+      "import": "./dist/models.js",
+      "require": "./dist/models.cjs"
+    },
+    "./providers/openai": {
+      "types": "./dist/providers/openai.d.ts",
+      "import": "./dist/providers/openai.js",
+      "require": "./dist/providers/openai.cjs"
+    },
+    "./providers/anthropic": {
+      "types": "./dist/providers/anthropic.d.ts",
+      "import": "./dist/providers/anthropic.js",
+      "require": "./dist/providers/anthropic.cjs"
+    }
+  },
+  "files": ["dist", "docs"],
+  "keywords": ["ai", "llm", "kiyota", "openai", "sdk", "generate-text", "embeddings"],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kiyota-dev/Kiyota-AI-SDK.git",
+    "directory": "packages/sdk"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/models.ts src/providers/openai.ts src/providers/anthropic.ts --format esm,cjs --dts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
+    "prepack": "node ../../scripts/prepack.js",
+    "postpack": "node ../../scripts/postpack.js"
+  },
+  "dependencies": {
+    "@kiyota/client": "workspace:*",
+    "@kiyota/core": "workspace:*",
+    "@kiyota/events": "workspace:*",
+    "@kiyota/models": "workspace:*",
+    "@kiyota/provider-anthropic": "workspace:*",
+    "@kiyota/provider-openai": "workspace:*",
+    "@kiyota/provider-utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@kiyota/tsconfig": "workspace:*",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

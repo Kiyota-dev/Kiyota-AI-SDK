@@ -4,6 +4,8 @@ import type {
   LanguageModelV1Usage,
   Warning,
 } from "@kiyota/core";
+import type { EventBus } from "@kiyota/events";
+import { runModelMiddleware, type ModelMiddleware } from "@kiyota/middleware";
 import {
   type SimpleMessage,
   convertToLanguageModelPrompt,
@@ -23,6 +25,8 @@ export interface GenerateTextOptions {
   abortSignal?: AbortSignal;
   headers?: Record<string, string | undefined>;
   providerOptions?: Record<string, Record<string, unknown>>;
+  eventBus?: EventBus;
+  middleware?: ModelMiddleware[];
 }
 
 export interface GenerateTextResult {
@@ -34,8 +38,30 @@ export interface GenerateTextResult {
 }
 
 export async function generateText(options: GenerateTextOptions): Promise<GenerateTextResult> {
-  const result = await options.model.doGenerate({
-    prompt: convertToLanguageModelPrompt(options.messages),
+  const eventBus = options.eventBus;
+  const model = options.model;
+  const provider = model.provider;
+  const modelId = model.modelId;
+
+  eventBus?.emit({
+    type: "request:start",
+    version: 1,
+    payload: {
+      model: modelId,
+      provider,
+      messages: options.messages,
+      options: {
+        maxTokens: options.maxTokens,
+        temperature: options.temperature,
+        topP: options.topP,
+        topK: options.topK,
+      },
+    },
+  });
+
+  const prompt = convertToLanguageModelPrompt(options.messages);
+  const request = {
+    prompt,
     maxOutputTokens: options.maxTokens,
     temperature: options.temperature,
     topP: options.topP,
@@ -47,13 +73,47 @@ export async function generateText(options: GenerateTextOptions): Promise<Genera
     abortSignal: options.abortSignal,
     headers: options.headers,
     providerOptions: options.providerOptions,
-  });
-
-  return {
-    text: result.text ?? "",
-    finishReason: result.finishReason,
-    usage: result.usage,
-    warnings: result.warnings,
-    response: result.response,
   };
+
+  const middleware = options.middleware ?? [];
+
+  try {
+    const result = (await runModelMiddleware(
+      model,
+      request,
+      middleware,
+      async (req) => model.doGenerate(req),
+    )) as LanguageModelV1GenerateResult;
+
+    eventBus?.emit({
+      type: "request:complete",
+      version: 1,
+      payload: {
+        model: modelId,
+        provider,
+        text: result.text,
+        finishReason: result.finishReason,
+        usage: result.usage,
+      },
+    });
+
+    return {
+      text: result.text ?? "",
+      finishReason: result.finishReason,
+      usage: result.usage,
+      warnings: result.warnings,
+      response: result.response,
+    };
+  } catch (error) {
+    eventBus?.emit({
+      type: "request:error",
+      version: 1,
+      payload: {
+        model: modelId,
+        provider,
+        error,
+      },
+    });
+    throw error;
+  }
 }

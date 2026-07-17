@@ -2,9 +2,12 @@ import type {
   LanguageModelV1,
   LanguageModelV1GenerateResult,
   LanguageModelV1StreamPart,
+  LanguageModelV1StreamResult,
   LanguageModelV1Usage,
   Warning,
 } from "@kiyota/core";
+import type { EventBus } from "@kiyota/events";
+import { runModelMiddleware, type ModelMiddleware } from "@kiyota/middleware";
 import {
   type SimpleMessage,
   convertToLanguageModelPrompt,
@@ -24,6 +27,8 @@ export interface StreamTextOptions {
   abortSignal?: AbortSignal;
   headers?: Record<string, string | undefined>;
   providerOptions?: Record<string, Record<string, unknown>>;
+  eventBus?: EventBus;
+  middleware?: ModelMiddleware[];
 }
 
 export interface StreamTextResult {
@@ -35,8 +40,23 @@ export interface StreamTextResult {
 }
 
 export async function streamText(options: StreamTextOptions): Promise<StreamTextResult> {
-  const { stream } = await options.model.doStream({
-    prompt: convertToLanguageModelPrompt(options.messages),
+  const eventBus = options.eventBus;
+  const model = options.model;
+  const provider = model.provider;
+  const modelId = model.modelId;
+
+  eventBus?.emit({
+    type: "stream:start",
+    version: 1,
+    payload: {
+      model: modelId,
+      provider,
+    },
+  });
+
+  const prompt = convertToLanguageModelPrompt(options.messages);
+  const request = {
+    prompt,
     maxOutputTokens: options.maxTokens,
     temperature: options.temperature,
     topP: options.topP,
@@ -48,7 +68,17 @@ export async function streamText(options: StreamTextOptions): Promise<StreamText
     abortSignal: options.abortSignal,
     headers: options.headers,
     providerOptions: options.providerOptions,
-  });
+  };
+
+  const middleware = options.middleware ?? [];
+
+  let streamError: unknown;
+  let { stream } = (await runModelMiddleware(
+    model,
+    request,
+    middleware,
+    async (req) => model.doStream(req),
+  )) as LanguageModelV1StreamResult;
 
   let finishReasonResolve: (value: LanguageModelV1GenerateResult["finishReason"]) => void;
   let usageResolve: (value: LanguageModelV1Usage) => void;
@@ -94,14 +124,49 @@ export async function streamText(options: StreamTextOptions): Promise<StreamText
 
         if (streamed != null) {
           chunks.push(streamed);
+          eventBus?.emit({
+            type: "stream:chunk",
+            version: 1,
+            payload: {
+              model: modelId,
+              provider,
+              text: streamed,
+            },
+          });
           yield streamed;
         }
       }
+    } catch (error) {
+      streamError = error;
+      throw error;
     } finally {
       textResolve(chunks.join(""));
       finishReasonResolve(finishReason);
       usageResolve(usage);
       warningsResolve(warnings);
+
+      if (streamError) {
+        eventBus?.emit({
+          type: "stream:error",
+          version: 1,
+          payload: {
+            model: modelId,
+            provider,
+            error: streamError,
+          },
+        });
+      } else {
+        eventBus?.emit({
+          type: "stream:finish",
+          version: 1,
+          payload: {
+            model: modelId,
+            provider,
+            finishReason,
+            usage,
+          },
+        });
+      }
     }
   }
 

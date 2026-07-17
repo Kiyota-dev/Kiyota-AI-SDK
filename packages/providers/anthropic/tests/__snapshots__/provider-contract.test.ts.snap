@@ -1,0 +1,54 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Anthropic provider contract > matches snapshot for a simple generate call > anthropic-generate-result 1`] = `
+{
+  "finishReason": "stop",
+  "response": {
+    "body": {
+      "content": [
+        {
+          "text": "Snapshot response",
+          "type": "text",
+        },
+      ],
+      "id": "msg-snapshot",
+      "model": "claude-3-5-sonnet-20241022",
+      "role": "assistant",
+      "stop_reason": "end_turn",
+      "type": "message",
+      "usage": {
+        "input_tokens": 2,
+        "output_tokens": 3,
+      },
+    },
+    "headers": {
+      "content-type": "application/json",
+    },
+    "id": "msg-snapshot",
+    "modelId": "claude-3-5-sonnet-20241022",
+  },
+  "text": "Snapshot response",
+  "usage": {
+    "completionTokens": 3,
+    "promptTokens": 2,
+    "totalTokens": 5,
+  },
+  "warnings": [],
+}
+`;
+
+exports[`Anthropic provider contract > matches snapshot for a simple generate call > anthropic-request-body 1`] = `
+{
+  "max_tokens": 100,
+  "messages": [
+    {
+      "content": "Hello",
+      "role": "user",
+    },
+  ],
+  "model": "claude-3-5-sonnet-20241022",
+  "stream": false,
+  "system": "You are a helpful assistant.",
+  "temperature": 0.5,
+}
+`;

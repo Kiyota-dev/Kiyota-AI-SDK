@@ -41,7 +41,9 @@
     "postpack": "node ../../scripts/postpack.js"
   },
   "dependencies": {
-    "@kiyota/core": "workspace:*"
+    "@kiyota/cache": "workspace:*",
+    "@kiyota/core": "workspace:*",
+    "@kiyota/retry": "workspace:*"
   },
   "devDependencies": {
     "@kiyota/tsconfig": "workspace:*",

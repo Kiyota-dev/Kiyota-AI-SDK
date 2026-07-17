@@ -1,0 +1,20 @@
+---
+"@kiyota/sdk": minor
+"@kiyota/provider-anthropic": minor
+"@kiyota/events": minor
+"@kiyota/cache": minor
+"@kiyota/middleware": minor
+"@kiyota/models": patch
+"@kiyota/client": patch
+---
+
+Implement the first wave of SDK improvement suggestions:
+
+- Renamed the meta-package to `@kiyota/sdk`.
+- Added a plugin-based provider architecture with a new `@kiyota/provider-anthropic` package.
+- Registered Anthropic models in `@kiyota/models`.
+- Exposed OpenAI and Anthropic providers via `@kiyota/sdk/providers/openai` and `@kiyota/sdk/providers/anthropic`.
+- Introduced `@kiyota/events`, a versioned event bus, and wired `request:*` / `stream:*` events into `generateText` and `streamText`.
+- Introduced `@kiyota/cache` with in-memory and Redis backends.
+- Expanded `@kiyota/middleware` with model-first middleware, a middleware runner, and built-in logging, retry, and cache middleware.
+- Added provider contract and snapshot tests for Anthropic.

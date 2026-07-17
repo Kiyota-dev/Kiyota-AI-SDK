@@ -17,7 +17,10 @@ export {
 } from "./registry.js";
 export { openaiModels } from "./providers/openai.js";
 export type { OpenAIModelId } from "./providers/openai.js";
+export { anthropicModels } from "./providers/anthropic.js";
+export type { AnthropicModelId } from "./providers/anthropic.js";
 
+import { anthropicModels } from "./providers/anthropic.js";
 import { openaiModels } from "./providers/openai.js";
 
 /**
@@ -62,6 +65,23 @@ export const models = {
     },
     get textEmbeddingAda002() {
       return openaiModels["text-embedding-ada-002"];
+    },
+  },
+  anthropic: {
+    get claude35Sonnet() {
+      return anthropicModels["claude-3-5-sonnet-20241022"];
+    },
+    get claude35Haiku() {
+      return anthropicModels["claude-3-5-haiku-20241022"];
+    },
+    get claude3Opus() {
+      return anthropicModels["claude-3-opus-20240229"];
+    },
+    get claude3Sonnet() {
+      return anthropicModels["claude-3-sonnet-20240229"];
+    },
+    get claude3Haiku() {
+      return anthropicModels["claude-3-haiku-20240307"];
     },
   },
 };

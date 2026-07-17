@@ -16,7 +16,7 @@ npm install kiyota
 ## Quickstart
 
 ```typescript
-import { kiyota } from "kiyota";
+import { kiyota } from "@kiyota/sdk";
 
 const ai = kiyota({
   openai: { apiKey: process.env.OPENAI_API_KEY },
@@ -57,7 +57,7 @@ const { embedding } = await ai.embed({
 ### Structured output
 
 ```typescript
-import { zodSchema } from "kiyota/models";
+import { zodSchema } from "@kiyota/sdk/models";
 import { z } from "zod";
 
 const schema = z.object({
@@ -77,7 +77,7 @@ console.log(object);
 ### Model registry
 
 ```typescript
-import { models, estimateCost, supports } from "kiyota/models";
+import { models, estimateCost, supports } from "@kiyota/sdk/models";
 
 const model = models.openai.gpt4o;
 console.log(model.capabilities.vision); // true
@@ -114,7 +114,7 @@ warning. It will be removed in v0.3.0. See the [migration guide](docs/migrate-v0
 
 The SDK is organized into focused packages with strict dependency boundaries:
 
-- `kiyota` — single-install meta-package with providers and model registry
+- `@kiyota/sdk` — single-install meta-package with providers and model registry
 - `@kiyota/models` — unified model registry, capabilities, and pricing
 - `@kiyota/client` — model-first AI functions (`generateText`, `streamText`, `embed`, `embedMany`, `generateObject`, `streamObject`)
 - `@kiyota/core` — interfaces, types, errors, constants
