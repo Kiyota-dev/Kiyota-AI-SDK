@@ -329,6 +329,138 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9
 
+  packages/providers/deepseek:
+    dependencies:
+      '@kiyota/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@kiyota/provider-openai-compatible':
+        specifier: workspace:*
+        version: link:../openai-compatible
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
+  packages/providers/gemini:
+    dependencies:
+      '@kiyota/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@kiyota/provider-openai-compatible':
+        specifier: workspace:*
+        version: link:../openai-compatible
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
+  packages/providers/kimi:
+    dependencies:
+      '@kiyota/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@kiyota/provider-openai-compatible':
+        specifier: workspace:*
+        version: link:../openai-compatible
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
+  packages/providers/minimax:
+    dependencies:
+      '@kiyota/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@kiyota/provider-openai-compatible':
+        specifier: workspace:*
+        version: link:../openai-compatible
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
+  packages/providers/mistral:
+    dependencies:
+      '@kiyota/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@kiyota/provider-openai-compatible':
+        specifier: workspace:*
+        version: link:../openai-compatible
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
+  packages/providers/nvidia:
+    dependencies:
+      '@kiyota/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@kiyota/provider-openai-compatible':
+        specifier: workspace:*
+        version: link:../openai-compatible
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
   packages/providers/openai:
     dependencies:
       '@kiyota/core':
@@ -346,6 +478,75 @@ importers:
       '@kiyota/utils':
         specifier: workspace:*
         version: link:../../utils
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
+  packages/providers/openai-compatible:
+    dependencies:
+      '@kiyota/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@kiyota/provider-openai':
+        specifier: workspace:*
+        version: link:../openai
+      '@kiyota/provider-utils':
+        specifier: workspace:*
+        version: link:../../provider-utils
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
+  packages/providers/qwen:
+    dependencies:
+      '@kiyota/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@kiyota/provider-openai-compatible':
+        specifier: workspace:*
+        version: link:../openai-compatible
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
+  packages/providers/xai:
+    dependencies:
+      '@kiyota/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@kiyota/provider-openai-compatible':
+        specifier: workspace:*
+        version: link:../openai-compatible
     devDependencies:
       '@kiyota/tsconfig':
         specifier: workspace:*
@@ -399,12 +600,36 @@ importers:
       '@kiyota/provider-anthropic':
         specifier: workspace:*
         version: link:../providers/anthropic
+      '@kiyota/provider-deepseek':
+        specifier: workspace:*
+        version: link:../providers/deepseek
+      '@kiyota/provider-gemini':
+        specifier: workspace:*
+        version: link:../providers/gemini
+      '@kiyota/provider-kimi':
+        specifier: workspace:*
+        version: link:../providers/kimi
+      '@kiyota/provider-minimax':
+        specifier: workspace:*
+        version: link:../providers/minimax
+      '@kiyota/provider-mistral':
+        specifier: workspace:*
+        version: link:../providers/mistral
+      '@kiyota/provider-nvidia':
+        specifier: workspace:*
+        version: link:../providers/nvidia
       '@kiyota/provider-openai':
         specifier: workspace:*
         version: link:../providers/openai
+      '@kiyota/provider-qwen':
+        specifier: workspace:*
+        version: link:../providers/qwen
       '@kiyota/provider-utils':
         specifier: workspace:*
         version: link:../provider-utils
+      '@kiyota/provider-xai':
+        specifier: workspace:*
+        version: link:../providers/xai
     devDependencies:
       '@kiyota/tsconfig':
         specifier: workspace:*

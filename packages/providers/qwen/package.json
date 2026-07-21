@@ -1,0 +1,31 @@
+{
+  "name": "@kiyota/provider-qwen",
+  "version": "0.1.0",
+  "description": "Qwen provider adapter for the Kiyota AI SDK",
+  "license": "MIT",
+  "author": "Kiyota",
+  "type": "module",
+  "sideEffects": false,
+  "source": "./src/index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js", "require": "./dist/index.cjs" } },
+  "files": ["dist"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@kiyota/core": "workspace:*",
+    "@kiyota/provider-openai-compatible": "workspace:*"
+  },
+  "devDependencies": {
+    "@kiyota/tsconfig": "workspace:*",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,3 +1,15 @@
+export type AIResourceType =
+  | "chat"
+  | "embedding"
+  | "image"
+  | "audio"
+  | "video"
+  | "moderation"
+  | "reranking"
+  | "ocr";
+
+export type ModelStatus = "active" | "deprecated" | "preview";
+
 export interface ModelCapabilities {
   /** Supports chat/completion requests. */
   chat: boolean;
@@ -15,6 +27,16 @@ export interface ModelCapabilities {
   reasoning: boolean;
   /** Supports text embeddings. */
   embedding: boolean;
+  /** Supports audio input or output. */
+  audio?: boolean;
+  /** Supports image generation. */
+  imageGeneration?: boolean;
+  /** Supports video generation or understanding. */
+  video?: boolean;
+  /** Supports provider-native structured outputs. */
+  structuredOutputs?: boolean;
+  /** Supports strict JSON schema outputs. */
+  supportsJSON?: boolean;
 }
 
 export interface ModelPricing {
@@ -26,6 +48,38 @@ export interface ModelPricing {
   cachedInputTokensPerMillion?: number;
 }
 
+export interface ModelFamily {
+  /** Stable family identifier, e.g. "gpt-5.6". */
+  id: string;
+  /** Human-readable family name, e.g. "GPT-5.6". */
+  name: string;
+  /** Provider key, e.g. "openai". */
+  provider: string;
+  /** Model IDs that belong to this family. */
+  modelIds: string[];
+}
+
+export interface ProviderCapabilities {
+  /** Provider key, e.g. "openai". */
+  provider: string;
+  /** Supports the OpenAI Responses API. */
+  responsesApi?: boolean;
+  /** Supports realtime/streaming APIs. */
+  realtimeApi?: boolean;
+  /** Supports batch inference. */
+  batchApi?: boolean;
+  /** Supports file upload/management APIs. */
+  filesApi?: boolean;
+  /** Supports grounding/retrieval-augmented generation. */
+  grounding?: boolean;
+  /** Supports configurable safety settings. */
+  safetySettings?: boolean;
+  /** Supports prompt caching. */
+  promptCaching?: boolean;
+  /** Supports extended thinking / reasoning traces. */
+  extendedThinking?: boolean;
+}
+
 export interface ModelDefinition {
   /** Provider-specific model ID used in API calls. */
   id: string;
@@ -35,6 +89,12 @@ export interface ModelDefinition {
   name: string;
   /** Short description of the model. */
   description?: string;
+  /** High-level resource type. */
+  resourceType: AIResourceType;
+  /** Optional family identifier. */
+  family?: string;
+  /** Lifecycle status. */
+  status: ModelStatus;
   /** Capability flags. */
   capabilities: ModelCapabilities;
   /** Approximate pricing. Prices change; verify with the provider. */
@@ -43,6 +103,8 @@ export interface ModelDefinition {
   contextWindow?: number;
   /** Maximum output tokens the model supports. */
   maxOutputTokens?: number;
+  /** Alternative names or shorthand aliases. */
+  aliases?: string[];
 }
 
 export type ModelRef =

@@ -1,4 +1,1 @@
-export {
-  createAnthropic,
-  type AnthropicProviderSettings,
-} from "@kiyota/provider-anthropic";
+export * from "@kiyota/provider-anthropic";

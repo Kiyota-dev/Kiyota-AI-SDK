@@ -1,0 +1,54 @@
+{
+  "name": "@kiyota/provider-openai-compatible",
+  "version": "0.1.0",
+  "description": "Shared OpenAI-compatible provider core for the Kiyota AI SDK",
+  "license": "MIT",
+  "author": "Kiyota",
+  "type": "module",
+  "sideEffects": false,
+  "source": "./src/index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist"],
+  "keywords": ["ai", "kiyota", "openai-compatible", "provider"],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kiyota-dev/Kiyota-AI-SDK.git",
+    "directory": "packages/providers/openai-compatible"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
+    "prepack": "node ../../../scripts/prepack.js",
+    "postpack": "node ../../../scripts/postpack.js"
+  },
+  "dependencies": {
+    "@kiyota/core": "workspace:*",
+    "@kiyota/provider-openai": "workspace:*",
+    "@kiyota/provider-utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@kiyota/tsconfig": "workspace:*",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

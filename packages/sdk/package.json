@@ -1,6 +1,6 @@
 {
   "name": "@kiyota/sdk",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "The Kiyota AI SDK — one install, every model.",
   "license": "MIT",
   "author": "Kiyota",
@@ -29,6 +29,46 @@
       "types": "./dist/providers/anthropic.d.ts",
       "import": "./dist/providers/anthropic.js",
       "require": "./dist/providers/anthropic.cjs"
+    },
+    "./providers/kimi": {
+      "types": "./dist/providers/kimi.d.ts",
+      "import": "./dist/providers/kimi.js",
+      "require": "./dist/providers/kimi.cjs"
+    },
+    "./providers/deepseek": {
+      "types": "./dist/providers/deepseek.d.ts",
+      "import": "./dist/providers/deepseek.js",
+      "require": "./dist/providers/deepseek.cjs"
+    },
+    "./providers/mistral": {
+      "types": "./dist/providers/mistral.d.ts",
+      "import": "./dist/providers/mistral.js",
+      "require": "./dist/providers/mistral.cjs"
+    },
+    "./providers/minimax": {
+      "types": "./dist/providers/minimax.d.ts",
+      "import": "./dist/providers/minimax.js",
+      "require": "./dist/providers/minimax.cjs"
+    },
+    "./providers/xai": {
+      "types": "./dist/providers/xai.d.ts",
+      "import": "./dist/providers/xai.js",
+      "require": "./dist/providers/xai.cjs"
+    },
+    "./providers/qwen": {
+      "types": "./dist/providers/qwen.d.ts",
+      "import": "./dist/providers/qwen.js",
+      "require": "./dist/providers/qwen.cjs"
+    },
+    "./providers/gemini": {
+      "types": "./dist/providers/gemini.d.ts",
+      "import": "./dist/providers/gemini.js",
+      "require": "./dist/providers/gemini.cjs"
+    },
+    "./providers/nvidia": {
+      "types": "./dist/providers/nvidia.d.ts",
+      "import": "./dist/providers/nvidia.js",
+      "require": "./dist/providers/nvidia.cjs"
     }
   },
   "files": [
@@ -57,7 +97,7 @@
     "directory": "packages/sdk"
   },
   "scripts": {
-    "build": "tsup src/index.ts src/models.ts src/providers/openai.ts src/providers/anthropic.ts --format esm,cjs --dts",
+    "build": "tsup src/index.ts src/models.ts src/providers/*.ts --format esm,cjs --dts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint": "biome check .",
@@ -71,8 +111,16 @@
     "@kiyota/events": "workspace:*",
     "@kiyota/models": "workspace:*",
     "@kiyota/provider-anthropic": "workspace:*",
+    "@kiyota/provider-deepseek": "workspace:*",
+    "@kiyota/provider-gemini": "workspace:*",
+    "@kiyota/provider-kimi": "workspace:*",
+    "@kiyota/provider-minimax": "workspace:*",
+    "@kiyota/provider-mistral": "workspace:*",
+    "@kiyota/provider-nvidia": "workspace:*",
     "@kiyota/provider-openai": "workspace:*",
-    "@kiyota/provider-utils": "workspace:*"
+    "@kiyota/provider-qwen": "workspace:*",
+    "@kiyota/provider-utils": "workspace:*",
+    "@kiyota/provider-xai": "workspace:*"
   },
   "devDependencies": {
     "@kiyota/tsconfig": "workspace:*",

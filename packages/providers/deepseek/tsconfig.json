@@ -1,0 +1,6 @@
+{
+  "extends": "@kiyota/tsconfig/base.json",
+  "compilerOptions": { "outDir": "./dist", "lib": ["ES2022", "DOM"] },
+  "include": ["src", "tests"],
+  "exclude": ["dist"]
+}

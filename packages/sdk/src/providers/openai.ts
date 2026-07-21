@@ -1,4 +1,1 @@
-export {
-  createOpenAI,
-  type OpenAIProviderSettings,
-} from "@kiyota/provider-openai";
+export * from "@kiyota/provider-openai";

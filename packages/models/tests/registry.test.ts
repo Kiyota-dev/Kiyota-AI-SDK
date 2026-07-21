@@ -1,71 +1,85 @@
 import { describe, expect, it } from "vitest";
 import {
-  estimateCost,
+  bestCoding,
   findModel,
+  findModels,
+  getContextWindow,
+  getModelCapabilities,
+  getModelFamily,
+  getModelPricing,
+  getProviderCapabilities,
   listModels,
   listModelsByProvider,
-  models,
-  requireCapability,
-  resolveModel,
-  supports,
+  listProviders,
+  recommended,
 } from "../src/index.js";
 
-describe("model registry", () => {
-  it("contains openai models", () => {
-    expect(models.openai.gpt4o.id).toBe("gpt-4o");
-    expect(models.openai.gpt4o.provider).toBe("openai");
-    expect(models.openai.gpt4o.capabilities.chat).toBe(true);
-    expect(models.openai.gpt4o.capabilities.embedding).toBe(false);
+describe("AI Resource Registry", () => {
+  it("lists models from all providers", () => {
+    const models = listModels();
+    expect(models.length).toBeGreaterThan(50);
+    const providers = listProviders();
+    expect(providers).toContain("openai");
+    expect(providers).toContain("anthropic");
+    expect(providers).toContain("kimi");
+    expect(providers).toContain("deepseek");
+    expect(providers).toContain("mistral");
+    expect(providers).toContain("minimax");
+    expect(providers).toContain("xai");
+    expect(providers).toContain("qwen");
+    expect(providers).toContain("gemini");
+    expect(providers).toContain("nvidia");
   });
 
-  it("lists all models", () => {
-    const all = listModels();
-    expect(all.length).toBeGreaterThan(0);
-    expect(all.some((m) => m.id === "gpt-4o")).toBe(true);
-    expect(all.some((m) => m.id === "text-embedding-3-small")).toBe(true);
+  it("finds a model by id", () => {
+    const model = findModel("gpt-5.6-sol");
+    expect(model).toBeDefined();
+    expect(model?.provider).toBe("openai");
+    expect(model?.capabilities.vision).toBe(true);
   });
 
-  it("filters by provider", () => {
-    const openai = listModelsByProvider("openai");
-    expect(openai.length).toBeGreaterThan(0);
-    expect(openai.every((m) => m.provider === "openai")).toBe(true);
+  it("gets model capabilities", () => {
+    const caps = getModelCapabilities("gpt-5.6-sol");
+    expect(caps?.chat).toBe(true);
+    expect(caps?.reasoning).toBe(true);
   });
 
-  it("finds models by string id", () => {
-    expect(findModel("gpt-4o")?.id).toBe("gpt-4o");
-    expect(findModel("unknown-model")).toBeUndefined();
+  it("gets model pricing", () => {
+    const pricing = getModelPricing("gpt-4o-mini");
+    expect(pricing?.inputTokensPerMillion).toBe(0.15);
   });
 
-  it("finds models by ref", () => {
-    expect(findModel({ provider: "openai", id: "gpt-4o" })?.id).toBe("gpt-4o");
+  it("gets context window", () => {
+    expect(getContextWindow("gpt-5.6-sol")).toBe(256_000);
   });
 
-  it("resolves or throws", () => {
-    expect(resolveModel("gpt-4o").id).toBe("gpt-4o");
-    expect(() => resolveModel("unknown")).toThrow(/Unknown model/);
+  it("gets model family", () => {
+    const family = getModelFamily("gpt-5.6-sol");
+    expect(family?.name).toBe("GPT-5.6");
+    expect(family?.modelIds).toContain("gpt-5.6-sol");
   });
 
-  it("checks capabilities", () => {
-    expect(supports(models.openai.gpt4o, "vision")).toBe(true);
-    expect(supports(models.openai.textEmbedding3Small, "chat")).toBe(false);
-    expect(supports(models.openai.textEmbedding3Small, "embedding")).toBe(true);
+  it("gets provider capabilities", () => {
+    const caps = getProviderCapabilities("openai");
+    expect(caps?.responsesApi).toBe(true);
+    expect(caps?.batchApi).toBe(true);
   });
 
-  it("requires capabilities", () => {
-    expect(() => requireCapability(models.openai.textEmbedding3Small, "chat")).toThrow(
-      /does not support chat/,
-    );
+  it("filters models by capability", () => {
+    const visionModels = findModels({ vision: true });
+    expect(visionModels.length).toBeGreaterThan(0);
+    expect(visionModels.every((m) => m.capabilities.vision)).toBe(true);
   });
 
-  it("estimates cost", () => {
-    const cost = estimateCost(models.openai.gpt4o, 1_000_000, 500_000);
-    expect(cost).toBe(7.5); // 2.5 input + 5 output
+  it("filters models by provider", () => {
+    const openaiModels = listModelsByProvider("openai");
+    expect(openaiModels.length).toBeGreaterThan(0);
+    expect(openaiModels.every((m) => m.provider === "openai")).toBe(true);
   });
 
-  it("estimates cost with cached tokens", () => {
-    const cost = estimateCost(models.openai.gpt4o, 1_000_000, 0, {
-      cachedInputTokens: 1_000_000,
-    });
-    expect(cost).toBe(1.25);
+  it("resolves aliases", () => {
+    expect(bestCoding()).toBeDefined();
+    expect(recommended()).toBeDefined();
+    expect(bestCoding({ provider: "anthropic" }).provider).toBe("anthropic");
   });
 });
