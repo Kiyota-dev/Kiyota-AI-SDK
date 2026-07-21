@@ -21,7 +21,7 @@ import {
   requireCapability,
   resolveModel,
   type ModelDefinition,
-} from "@kiyota/models";
+} from "@kiyota/registry";
 import { createAnthropic } from "@kiyota/provider-anthropic";
 import { createDeepSeek } from "@kiyota/provider-deepseek";
 import { createGemini } from "@kiyota/provider-gemini";

@@ -1,6 +1,6 @@
 {
   "name": "@kiyota/sdk",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "The Kiyota AI SDK — one install, every model.",
   "license": "MIT",
   "author": "Kiyota",
@@ -109,7 +109,7 @@
     "@kiyota/client": "workspace:*",
     "@kiyota/core": "workspace:*",
     "@kiyota/events": "workspace:*",
-    "@kiyota/models": "workspace:*",
+    "@kiyota/registry": "workspace:*",
     "@kiyota/provider-anthropic": "workspace:*",
     "@kiyota/provider-deepseek": "workspace:*",
     "@kiyota/provider-gemini": "workspace:*",

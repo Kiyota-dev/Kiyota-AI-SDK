@@ -1,7 +1,7 @@
 {
-  "name": "@kiyota/models",
-  "version": "0.2.3",
-  "description": "Deprecated — use @kiyota/registry instead. Compatibility wrapper for the Kiyota AI SDK model registry.",
+  "name": "@kiyota/registry",
+  "version": "0.3.0",
+  "description": "AI Resource Registry — models, capabilities, pricing, context, families, and aliases for the Kiyota AI SDK",
   "license": "MIT",
   "author": "Kiyota",
   "type": "module",
@@ -17,14 +17,17 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "docs"
   ],
   "keywords": [
     "ai",
     "llm",
     "models",
     "kiyota",
-    "registry"
+    "registry",
+    "resources",
+    "capabilities"
   ],
   "engines": {
     "node": ">=20"
@@ -36,7 +39,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Kiyota-dev/Kiyota-AI-SDK.git",
-    "directory": "packages/models"
+    "directory": "packages/registry"
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
@@ -46,9 +49,6 @@
     "lint:fix": "biome check . --write",
     "prepack": "node ../../scripts/prepack.js",
     "postpack": "node ../../scripts/postpack.js"
-  },
-  "dependencies": {
-    "@kiyota/registry": "workspace:*"
   },
   "devDependencies": {
     "@kiyota/tsconfig": "workspace:*",

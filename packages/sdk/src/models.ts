@@ -1,1 +1,1 @@
-export * from "@kiyota/models";
+export * from "@kiyota/registry";

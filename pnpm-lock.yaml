@@ -239,6 +239,10 @@ importers:
         version: 2.1.9
 
   packages/models:
+    dependencies:
+      '@kiyota/registry':
+        specifier: workspace:*
+        version: link:../registry
     devDependencies:
       '@kiyota/tsconfig':
         specifier: workspace:*
@@ -561,6 +565,21 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9
 
+  packages/registry:
+    devDependencies:
+      '@kiyota/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.19)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9
+
   packages/retry:
     dependencies:
       '@kiyota/core':
@@ -594,9 +613,6 @@ importers:
       '@kiyota/events':
         specifier: workspace:*
         version: link:../events
-      '@kiyota/models':
-        specifier: workspace:*
-        version: link:../models
       '@kiyota/provider-anthropic':
         specifier: workspace:*
         version: link:../providers/anthropic
@@ -630,6 +646,9 @@ importers:
       '@kiyota/provider-xai':
         specifier: workspace:*
         version: link:../providers/xai
+      '@kiyota/registry':
+        specifier: workspace:*
+        version: link:../registry
     devDependencies:
       '@kiyota/tsconfig':
         specifier: workspace:*
